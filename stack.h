@@ -16,7 +16,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
  */
 
 #include "data.h"
-#include <iostream> 
+#include <iostream>
 
 class Stack {
 

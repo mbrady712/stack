@@ -15,8 +15,17 @@ int main(int argc, char **argv) {
 
         Stack stack(size);
 
+        srand(time(NULL));
+
+        //ID and information values to be used for testing
+        int testID;
+        std::string testInfo;
+
+        //************************************************************************************************
+        //EMPTY TESTS
         //Test pop(), peek(), and isEmpty() operations when stack is empty. push() will be tested on empty
         //stack when tests on filling are conducted
+        //************************************************************************************************
 
         std::cout << "Test pop(), peek(), and isEmpty() operations when stack is empty." << std::endl;
         std::cout << "=================================================================" << std::endl;
@@ -47,13 +56,72 @@ int main(int argc, char **argv) {
 
         //Create 'empty' struct to pass to stack
         Data popper;
-        
+
         if(stack.pop(&popper)){
             std::cout << "ID: " << popper.id << std::endl;
             std::cout << "Information: " << popper.information << std::endl;
         }else{
             std::cout << "Pop underflow error: stack is empty" << std::endl;
         }
+        std::cout << std::endl;
+
+        //************************************************************************************************
+        //FILLING AND FULL TESTS
+        //
+        //************************************************************************************************
+
+        std::cout << "Testing all operations when stack is filling and full." << std::endl;
+        std::cout << "======================================================" << std::endl;
+
+        //Test filling stack with invalid ID and information values
+        //Test with negative ID value 
+        std::cout << "Test filling stack with negative and therefore invalid ID:" << std::endl;
+
+        testID = rand() * -1;
+        testInfo = "Testing a struct with a negative ID";
+        try
+        {
+            stack.push(testID, testInfo);
+        }
+        catch(std::string& e)
+        {
+            std::cout << e << std::endl;
+        }
+        std::cout << std::endl;
+        
+        //Test with empty information value
+        std::cout << "Test filling stack with empty and therefore invalid information:" << std::endl;
+
+        testID = rand();
+        testInfo = "";
+        try
+        {
+            stack.push(testID, testInfo);
+        }
+        catch(std::string& e)
+        {
+            std::cout << e << std::endl;
+        }
+        std::cout << std::endl;
+
+        //Testing filling the stack and overflow
+        std::cout << "Filling the stack until overflow error occurs:" << std::endl;
+
+        for (int i = 0; i < size + 1; i++) {
+            //Create valid random ID and info
+            testID = rand();
+            rand_string(&testInfo);
+
+            if(stack.push(testID, testInfo)){
+                std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
+                std::cout << "ID: " << testID << std::endl;
+                std::cout << "Information: " << testInfo << std::endl;
+            }else{
+                std::cout << "Overflow error: stack is full." << std::endl;
+            }
+        }
+        std::cout << std::endl;
+        
 
         // here for the rand_string() function
         // if you don't use it, get rid of this
