@@ -190,6 +190,18 @@ int main(int argc, char **argv) {
         } else {
             std::cout << "Stack is NOT empty" << std::endl;
         }
+        std::cout << std::endl;
+
+        //Testing peek() on empty stack
+        std::cout << "Result of peek(): ";
+
+        if(stack.peek(&peeker)){
+            std::cout << "ID: " << peeker.id << std::endl;
+            std::cout << "Information: " << peeker.information << std::endl;
+        }else{
+            std::cout << "Peek underflow error: stack is empty" << std::endl;
+        }
+        std::cout << std::endl;
 
 
         /* ***************************************************************
