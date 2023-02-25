@@ -230,6 +230,7 @@ int main(int argc, char **argv) {
             //Create valid random ID and info
             testID = rand();
             rand_string(&testInfo);
+            testInfo += "a";
 
             if(stack.push(testID, testInfo)){
                 std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
