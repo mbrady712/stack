@@ -97,7 +97,7 @@ Stack::~Stack(){
     for(int i = 0; i < size; i++){
         delete stack[i];
     }
-    delete []stack;
+    delete[] stack;
 }
 
 
