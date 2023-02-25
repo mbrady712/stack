@@ -1,3 +1,9 @@
+/*********************
+Name: Michael Brady
+Programming Fundamentals III
+Purpose: This program creates a stack ADT that holds a collection of pointers to Structures.
+**********************/
+
 /*
  * COSC 2436
  * Stacks Assignment
