@@ -33,9 +33,9 @@ int main(int argc, char **argv) {
         //Testing isEmpty() on empty stack
         std::cout << "Result of isEmpty(): ";
         if (stack.isEmpty()) {
-            std::cout << "stack is empty" << std::endl;
+            std::cout << "Stack is empty" << std::endl;
         } else {
-            std::cout << "stack is NOT empty" << std::endl;
+            std::cout << "Stack is NOT empty" << std::endl;
         }
 
         //Testing peek() on empty stack
@@ -121,11 +121,14 @@ int main(int argc, char **argv) {
             }
         }
         std::cout << std::endl;
-        
 
-        // here for the rand_string() function
-        // if you don't use it, get rid of this
-        //srand(time(NULL));
+        //Testing isEmpty() on full stack
+        std::cout << "Result of isEmpty(): ";
+        if (stack.isEmpty()) {
+            std::cout << "Stack is empty" << std::endl;
+        } else {
+            std::cout << "Stack is NOT empty" << std::endl;
+        }
 
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
@@ -169,14 +172,6 @@ int main(int argc, char **argv) {
         * only here to demonstrate the function. DELETE it once you study
         * it and understand it and can use it yourself in your code.
         * ***************************************************************/
-        
-        // make 20 random strings, store them, display them
-        /*std::string strtemp;
-        for(int i=0; i<20; i++){
-            rand_string(&strtemp);
-            std::cout << strtemp << std::endl;
-        }*/
-        
         
         /* ***************************************************************
         * Your code will be tested by applying your stack to a custom main
