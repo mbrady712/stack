@@ -12,6 +12,8 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #ifndef STACK_H
 #define STACK_H
 
+#define BOTTOM -1
+
 /*
  * there are no other includes here because they are not needed.
  * if you do need other things included, they would go here
@@ -22,11 +24,12 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 class Stack {
 
 public:
-
-    /* 
-     * write all your public method prototypes here
-     * this includes you constructor and destructor
-     */
+    Stack();
+    bool push(int);
+    int pop();
+    int peek();
+    bool isEmpty();
+    ~Stack();
     
 private:
 
