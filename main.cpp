@@ -270,6 +270,7 @@ int main(int argc, char **argv) {
                 std::cout << "Pop underflow error: stack is empty" << std::endl;
             }
         }
+        std::cout << std::endl;
 
         //************************************************************************************************
         //RANDOM TESTS
@@ -299,6 +300,68 @@ int main(int argc, char **argv) {
             }
         }
         std::cout << std::endl;
+
+        //Test random operations
+        int choice = rand() % CHOICES + 1;
+        for (int i = 0; i < size*RANDOM_MULTIPLIER; i++) {
+            switch (choice) {
+                case 1:
+                case 2:
+                    //push()
+                    std::cout << "Result of push():" << std::endl;
+
+                    //Create valid random ID and info
+                    testID = rand();
+                    rand_string(&testInfo);
+                    testInfo += "a";
+
+                    if(stack.push(testID, testInfo)){
+                        std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
+                        std::cout << "ID: " << testID << std::endl;
+                        std::cout << "Information: " << testInfo << std::endl;
+                    }else{
+                        std::cout << "Overflow error: stack is full." << std::endl;
+                    }
+                    break;
+                case 3:
+                case 4:
+                    //pop()
+                    std::cout << "Result of pop():" << std::endl;
+
+                    if(stack.pop(&popper)){
+                        std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
+                        std::cout << "ID: " << popper.id << std::endl;
+                        std::cout << "Information: " << popper.information << std::endl;
+                    }else{
+                        std::cout << "Pop underflow error: stack is empty" << std::endl;
+                    }
+                    break;
+                case 5:
+                    //peek()
+                    std::cout << "Result of peek(): ";
+                    if(stack.peek(&peeker)){
+                        std::cout << "Struct with following attributes successfully peeked:" << std::endl;
+                        std::cout << "ID: " << peeker.id << std::endl;
+                        std::cout << "Information: " << peeker.information << std::endl;
+                    }else{
+                        std::cout << "Peek underflow error: stack is empty" << std::endl;
+                    }
+                    break;
+                case 6:
+                    //isEmpty()
+                    std::cout << "Result of isEmpty(): ";
+                    if (stack.isEmpty()) {
+                        std::cout << "Stack is empty" << std::endl;
+                    } else {
+                        std::cout << "Stack is NOT empty" << std::endl;
+                    }
+            }
+            choice = rand() % CHOICES + 1;
+        }
+        std::cout << std::endl;
+
+        std::cout << "Testing complete." << std::endl;
+
 
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
@@ -357,46 +420,4 @@ int main(int argc, char **argv) {
     }
     
     return 0;
-
-    /*        std::string test = "hi";
-
-        //push()
-
-        std::cout << "Result of push no. 1:" << s1.push(5, test) << std::endl;
-
-        //pop()
-
-        //Pass an ‘empty’ struct Data to the stack (by reference)
-
-        Data popper;
-
-        //Verify that pop() works
-        std::cout << "Result of pop:" << s1.pop(&popper) << std::endl;
-        std::cout << "ID returned from pop: " << popper.id << std::endl;
-        std::cout << "Info returned from pop: " << popper.information << std::endl;
-
-        //peek()
-
-        //Push new struct to stack
-
-        test = "hello";
-
-        s1.push(4, test);
-
-        //Pass an ‘empty’ struct Data to the stack (by reference)
-
-        Data peeker;
-
-        //Verify that peek() works
-        std::cout << "Result of peek:" << s1.peek(&peeker) << std::endl;
-        std::cout << "ID returned from peek: " << peeker.id << std::endl;
-        std::cout << "Info returned from peek: " << peeker.information << std::endl;
-
-        //isEmpty()
-
-        std::cout << "Result of isEmpty:" << s1.isEmpty() << std::endl;
-
-        //getSize()
-
-        std::cout << "Number of structs in stack:" << s1.getSize() << std::endl;*/
 }
