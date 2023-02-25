@@ -283,6 +283,23 @@ int main(int argc, char **argv) {
             stack.pop(&popper);
         }
 
+        //Fill the stack halfway with random data to begin random tests
+        for (int i = 0; i < int(size/2); i++) {
+            //Create valid random ID and info
+            testID = rand();
+            rand_string(&testInfo);
+            testInfo += "a";
+
+            if(stack.push(testID, testInfo)){
+                std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
+                std::cout << "ID: " << testID << std::endl;
+                std::cout << "Information: " << testInfo << std::endl;
+            }else{
+                std::cout << "Overflow error: stack is full." << std::endl;
+            }
+        }
+        std::cout << std::endl;
+
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
         * accept one and only one argument not including the program name
