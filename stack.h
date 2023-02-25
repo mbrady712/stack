@@ -29,7 +29,7 @@ public:
     Stack(int);
     bool push(int, string&);
     bool pop(Data*);
-    int peek();
+    bool peek(Data*);
     bool isEmpty();
     //~Stack();
     

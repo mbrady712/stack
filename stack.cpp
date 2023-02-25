@@ -52,7 +52,7 @@ bool Stack::pop(Data* popper){
         popper->id = stack[top]->id;
         popper->information = stack[top]->information;
 
-        delete stack[top];
+        delete stack[top];//Verify that this was deleted
 
         top--;
 
@@ -61,7 +61,26 @@ bool Stack::pop(Data* popper){
 
         popper->id = -1;
         popper->information = "";
-        
+
+        success = false;
+    }
+    return success;
+}
+
+bool Stack::peek(Data* peeker){
+    bool success;
+
+    if(top > BOTTOM){
+
+        peeker->id = stack[top]->id;
+        peeker->information = stack[top]->information;
+
+        success = true;
+    }else{
+
+        peeker->id = -1;
+        peeker->information = "";
+
         success = false;
     }
     return success;
