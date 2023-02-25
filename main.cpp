@@ -67,7 +67,6 @@ int main(int argc, char **argv) {
 
         //************************************************************************************************
         //FILLING AND FULL TESTS
-        //
         //************************************************************************************************
 
         std::cout << "Testing all operations when stack is filling and full." << std::endl;
@@ -136,6 +135,7 @@ int main(int argc, char **argv) {
         std::cout << "Result of peek(): " << std::endl;
 
         if(stack.peek(&peeker)){
+            std::cout << "Struct with following attributes successfully peeked:" << std::endl;
             std::cout << "ID: " << peeker.id << std::endl;
             std::cout << "Information: " << peeker.information << std::endl;
         }else{
@@ -153,8 +153,35 @@ int main(int argc, char **argv) {
         }else{
             std::cout << "Pop underflow error: stack is empty" << std::endl;
         }
+        std::cout << std::endl;
         
+        //************************************************************************************************
+        //EMPTYING AND EMPTY TESTS
+        //************************************************************************************************
 
+        std::cout << "Testing peek() and pop() until stack is empty" << std::endl;
+        std::cout << "=============================================" << std::endl;
+
+        for (int i = 0; i < size; i++) {
+            std::cout << "Result of peek(): " << std::endl;
+            if(stack.peek(&peeker)){
+                std::cout << "Struct with following attributes successfully peeked:" << std::endl;
+                std::cout << "ID: " << peeker.id << std::endl;
+                std::cout << "Information: " << peeker.information << std::endl;
+            }else{
+                std::cout << "Peek underflow error: stack is empty" << std::endl;
+            }
+
+            std::cout << "Result of pop():" << std::endl;
+            if(stack.pop(&popper)){
+                std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
+                std::cout << "ID: " << popper.id << std::endl;
+                std::cout << "Information: " << popper.information << std::endl;
+            }else{
+                std::cout << "Pop underflow error: stack is empty" << std::endl;
+            }
+        }
+        std::cout << std::endl;
 
 
         /* ***************************************************************
