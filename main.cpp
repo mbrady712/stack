@@ -183,6 +183,14 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+        //Testing isEmpty() on an empty stack
+        std::cout << "Result of isEmpty(): ";
+        if (stack.isEmpty()) {
+            std::cout << "Stack is empty" << std::endl;
+        } else {
+            std::cout << "Stack is NOT empty" << std::endl;
+        }
+
 
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
