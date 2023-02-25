@@ -124,11 +124,13 @@ int main(int argc, char **argv) {
 
         //Testing isEmpty() on full stack
         std::cout << "Result of isEmpty(): ";
+
         if (stack.isEmpty()) {
             std::cout << "Stack is empty" << std::endl;
         } else {
             std::cout << "Stack is NOT empty" << std::endl;
         }
+        std::cout << std::endl;
 
         //Testing peek() on full stack
         std::cout << "Result of peek(): " << std::endl;
@@ -139,6 +141,21 @@ int main(int argc, char **argv) {
         }else{
             std::cout << "Peek underflow error: stack is empty" << std::endl;
         }
+        std::cout << std::endl;
+
+        //Testing pop() on full stack. Pop each struct until stack is empty and underflow error occurs.
+        std::cout << "Result of pop():" << std::endl;
+
+        if(stack.pop(&popper)){
+            std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
+            std::cout << "ID: " << popper.id << std::endl;
+            std::cout << "Information: " << popper.information << std::endl;
+        }else{
+            std::cout << "Pop underflow error: stack is empty" << std::endl;
+        }
+        
+
+
 
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
