@@ -89,6 +89,10 @@ bool Stack::isEmpty(){
     return top == BOTTOM;
 }
 
+int Stack::getSize(){
+    return top + 1;
+}
+
 Stack::~Stack(){
     for(int i = 0; i < size; i++){
         delete stack[i];

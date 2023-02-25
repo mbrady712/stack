@@ -32,7 +32,8 @@ public:
     bool peek(Data*);
     bool isEmpty();
     ~Stack();
-    
+    int getSize();
+
 private:
 
     /* 
