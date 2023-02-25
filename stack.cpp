@@ -23,6 +23,7 @@ bool Stack::push(int num, string& data){
     bool success = false;
     std::string idError = "Struct not pushed: the ID entered is less than zero and is therefore invalid";
     std::string dataError = "Struct not pushed: The information entered is empty and is therefore invalid";
+    std::string overflow = "Overflow error: stack is full.";
 
     //If there is room in the stack
     if(top < size - 1){
@@ -43,6 +44,8 @@ bool Stack::push(int num, string& data){
 
             success = true;
         }
+    }else{
+        throw overflow;
     }
 
     return success;

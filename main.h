@@ -9,6 +9,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #define NARROW .30
 #define CHOICES 6
 #define RANDOM_MULTIPLIER 10
+#define MAX_INT 100000
 
 // you probably need all these,
 // but if you don't get rid of what you don't need
