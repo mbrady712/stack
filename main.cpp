@@ -45,6 +45,7 @@ int main(int argc, char **argv) {
         Data peeker;
 
         if(stack.peek(&peeker)){
+            std::cout << "Struct with following attributes successfully peeked:" << std::endl;
             std::cout << "ID: " << peeker.id << std::endl;
             std::cout << "Information: " << peeker.information << std::endl;
         }else{
@@ -58,6 +59,7 @@ int main(int argc, char **argv) {
         Data popper;
 
         if(stack.pop(&popper)){
+            std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
             std::cout << "ID: " << popper.id << std::endl;
             std::cout << "Information: " << popper.information << std::endl;
         }else{
@@ -196,10 +198,23 @@ int main(int argc, char **argv) {
         std::cout << "Result of peek(): ";
 
         if(stack.peek(&peeker)){
+            std::cout << "Struct with following attributes successfully peeked:" << std::endl;
             std::cout << "ID: " << peeker.id << std::endl;
             std::cout << "Information: " << peeker.information << std::endl;
         }else{
             std::cout << "Peek underflow error: stack is empty" << std::endl;
+        }
+        std::cout << std::endl;
+
+        //Testing pop() on empty stack
+        std::cout << "Result of pop(): ";
+
+        if(stack.pop(&popper)){
+            std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
+            std::cout << "ID: " << popper.id << std::endl;
+            std::cout << "Information: " << popper.information << std::endl;
+        }else{
+            std::cout << "Pop underflow error: stack is empty" << std::endl;
         }
         std::cout << std::endl;
 
