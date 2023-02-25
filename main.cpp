@@ -271,8 +271,17 @@ int main(int argc, char **argv) {
             }
         }
 
+        //************************************************************************************************
+        //RANDOM TESTS
+        //************************************************************************************************
 
-        
+        std::cout << "Random testing..." << std::endl;
+        std::cout << "=================" << std::endl;
+
+        //Empty the stack
+        while(!stack.isEmpty()){
+            stack.pop(&popper);
+        }
 
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
