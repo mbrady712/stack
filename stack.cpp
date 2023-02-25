@@ -86,5 +86,9 @@ bool Stack::peek(Data* peeker){
     return success;
 }
 
+bool Stack::isEmpty(){
+    return top == BOTTOM;
+}
+
 
 
