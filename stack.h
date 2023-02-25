@@ -28,7 +28,7 @@ class Stack {
 public:
     Stack(int);
     bool push(int, string&);
-    int pop();
+    bool pop(Data*);
     int peek();
     bool isEmpty();
     //~Stack();

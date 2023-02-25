@@ -29,20 +29,40 @@ bool Stack::push(int num, string& data){
     bool success = false;
 
     if(top < size - 1 && num > 0 && data != ""){
-        //Dynamically create a struct Data to hold the data.
+       
         Data *myData = new Data;
 
-        //Put the id and string in the struct Data.
         myData->id = num;
         myData->information = data;
 
-        //Increment the stack counter
         top++;
 
-        //Push the pointer for the struct onto the stack.
         stack[top] = myData;
 
         success = true;
+    }
+    return success;
+}
+
+bool Stack::pop(Data* popper){
+    bool success;
+
+    if(top > BOTTOM){
+
+        popper->id = stack[top]->id;
+        popper->information = stack[top]->information;
+
+        delete stack[top];
+
+        top--;
+
+        success = true;
+    }else{
+
+        popper->id = -1;
+        popper->information = "";
+        
+        success = false;
     }
     return success;
 }
