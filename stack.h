@@ -31,7 +31,7 @@ public:
     bool pop(Data*);
     bool peek(Data*);
     bool isEmpty();
-    //~Stack();
+    ~Stack();
     
 private:
 

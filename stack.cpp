@@ -12,7 +12,6 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 // each cpp includes ONLY it's header directly
 #include "stack.h"
 
-//accepts an int for the stack size
 Stack::Stack(int arg){
     top = BOTTOM;
 
@@ -52,7 +51,7 @@ bool Stack::pop(Data* popper){
         popper->id = stack[top]->id;
         popper->information = stack[top]->information;
 
-        delete stack[top];//Verify that this was deleted
+        delete stack[top];
 
         top--;
 
@@ -90,5 +89,11 @@ bool Stack::isEmpty(){
     return top == BOTTOM;
 }
 
+Stack::~Stack(){
+    for(int i = 0; i < size; i++){
+        delete stack[i];
+    }
+    delete []stack;
+}
 
 
