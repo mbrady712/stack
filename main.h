@@ -4,11 +4,6 @@ Programming Fundamentals III
 Purpose: This program creates a stack ADT that holds a collection of pointers to Structures.
 **********************/
 
-/*
- * your header here
- * 
- */
-
 #ifndef STACKS_MAIN_H
 #define STACKS_MAIN_H
 

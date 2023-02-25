@@ -4,16 +4,56 @@ Programming Fundamentals III
 Purpose: This program creates a stack ADT that holds a collection of pointers to Structures.
 **********************/
 
-/*
- * your header here
- * 
- */
-
 #include "main.h"
 
 int main(int argc, char **argv) {
     
     if(argc == 2 && isPosInt(argv[1])){
+
+        //convert command line input from char **argv to int
+        int size = atoi(argv[1]);
+
+        Stack stack(size);
+
+        //Test pop(), peek(), and isEmpty() operations when stack is empty. push() will be tested on empty
+        //stack when tests on filling are conducted
+
+        std::cout << "Test pop(), peek(), and isEmpty() operations when stack is empty." << std::endl;
+        std::cout << "=================================================================" << std::endl;
+
+        //Testing isEmpty() on empty stack
+        std::cout << "Result of isEmpty(): ";
+        if (stack.isEmpty()) {
+            std::cout << "stack is empty" << std::endl;
+        } else {
+            std::cout << "stack is NOT empty" << std::endl;
+        }
+
+        //Testing peek() on empty stack
+        std::cout << "Result of peek(): ";
+
+        //Create 'empty' struct to pass to stack
+        Data peeker;
+
+        if(stack.peek(&peeker)){
+            std::cout << "ID: " << peeker.id << std::endl;
+            std::cout << "Information: " << peeker.information << std::endl;
+        }else{
+            std::cout << "Peek underflow error: stack is empty" << std::endl;
+        }
+
+        //Testing pop() on empty stack
+        std::cout << "Result of pop(): ";
+
+        //Create 'empty' struct to pass to stack
+        Data popper;
+        
+        if(stack.pop(&popper)){
+            std::cout << "ID: " << popper.id << std::endl;
+            std::cout << "Information: " << popper.information << std::endl;
+        }else{
+            std::cout << "Pop underflow error: stack is empty" << std::endl;
+        }
 
         // here for the rand_string() function
         // if you don't use it, get rid of this
@@ -28,7 +68,7 @@ int main(int argc, char **argv) {
         * 
         * Remember, you may not use more than one return, even in main()
         * and you may not use exit() or anything like that.
-        * ***************************************************************/
+        * ***************************************************************///complete
         
         /* ***************************************************************
         * Use the number passed in from the command line and declare a stack
@@ -84,4 +124,46 @@ int main(int argc, char **argv) {
     }
     
     return 0;
+
+    /*        std::string test = "hi";
+
+        //push()
+
+        std::cout << "Result of push no. 1:" << s1.push(5, test) << std::endl;
+
+        //pop()
+
+        //Pass an ‘empty’ struct Data to the stack (by reference)
+
+        Data popper;
+
+        //Verify that pop() works
+        std::cout << "Result of pop:" << s1.pop(&popper) << std::endl;
+        std::cout << "ID returned from pop: " << popper.id << std::endl;
+        std::cout << "Info returned from pop: " << popper.information << std::endl;
+
+        //peek()
+
+        //Push new struct to stack
+
+        test = "hello";
+
+        s1.push(4, test);
+
+        //Pass an ‘empty’ struct Data to the stack (by reference)
+
+        Data peeker;
+
+        //Verify that peek() works
+        std::cout << "Result of peek:" << s1.peek(&peeker) << std::endl;
+        std::cout << "ID returned from peek: " << peeker.id << std::endl;
+        std::cout << "Info returned from peek: " << peeker.information << std::endl;
+
+        //isEmpty()
+
+        std::cout << "Result of isEmpty:" << s1.isEmpty() << std::endl;
+
+        //getSize()
+
+        std::cout << "Number of structs in stack:" << s1.getSize() << std::endl;*/
 }
