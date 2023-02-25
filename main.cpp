@@ -130,6 +130,16 @@ int main(int argc, char **argv) {
             std::cout << "Stack is NOT empty" << std::endl;
         }
 
+        //Testing peek() on full stack
+        std::cout << "Result of peek(): " << std::endl;
+
+        if(stack.peek(&peeker)){
+            std::cout << "ID: " << peeker.id << std::endl;
+            std::cout << "Information: " << peeker.information << std::endl;
+        }else{
+            std::cout << "Peek underflow error: stack is empty" << std::endl;
+        }
+
         /* ***************************************************************
         * First get your arguments from the command line. Your program must
         * accept one and only one argument not including the program name
