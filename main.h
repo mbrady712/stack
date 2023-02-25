@@ -19,6 +19,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #include <iostream>   /* cout, endl */
 #include <string>     /* string */
 #include "functions.h"
+#include "stack.h"
 
 /*
  * additional directives here

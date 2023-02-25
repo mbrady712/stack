@@ -33,3 +33,15 @@ void rand_string(std::string *str){
     return;
 }
 
+bool isPosInt(const char *num){
+    bool check = true;
+    int index = 0;
+    while(num[index] != '\0'){
+        if(!isdigit(num[index])){
+            check = false;
+        };
+        index++;
+    }
+
+    return check;
+}

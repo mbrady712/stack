@@ -20,5 +20,6 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #include <string>     /* string */
 
 void rand_string(std::string*);
+bool isPosInt(const char *);
 
 #endif /* STACKS_FUNCTIONS_H */
