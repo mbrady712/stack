@@ -13,6 +13,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #define STACK_H
 
 #define BOTTOM -1
+#define DEFAULT 10
 
 /*
  * there are no other includes here because they are not needed.
@@ -20,16 +21,17 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
  */
 
 #include "data.h"
+#include <iostream> 
 
 class Stack {
 
 public:
-    Stack();
-    bool push(int);
+    Stack(int);
+    bool push(int, string&);
     int pop();
     int peek();
     bool isEmpty();
-    ~Stack();
+    //~Stack();
     
 private:
 

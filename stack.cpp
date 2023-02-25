@@ -22,9 +22,29 @@ Stack::Stack(int arg){
         size = 10;
     }
 
-    std::cout << size;
-
     stack = new Data*[size];
+}
+
+bool Stack::push(int num, string& data){
+    bool success = false;
+
+    if(top < size - 1 && num > 0 && data != ""){
+        //Dynamically create a struct Data to hold the data.
+        Data *myData = new Data;
+
+        //Put the id and string in the struct Data.
+        myData->id = num;
+        myData->information = data;
+
+        //Increment the stack counter
+        top++;
+
+        //Push the pointer for the struct onto the stack.
+        stack[top] = myData;
+
+        success = true;
+    }
+    return success;
 }
 
 
