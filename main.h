@@ -6,6 +6,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 
 #ifndef STACKS_MAIN_H
 #define STACKS_MAIN_H
+#define NARROW .30
 
 // you probably need all these,
 // but if you don't get rid of what you don't need

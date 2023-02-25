@@ -242,6 +242,35 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+        //Test isEmpty(), peek(), and pop() on a range of structs in the middle of the stack
+        for(int i = 0; i < size*NARROW; i++){
+            //isEmpty
+            std::cout << "Result of isEmpty(): ";
+            if (stack.isEmpty()) {
+                std::cout << "Stack is empty" << std::endl;
+            } else {
+                std::cout << "Stack is NOT empty" << std::endl;
+            }
+            //peek()
+            std::cout << "Result of peek(): ";
+            if(stack.peek(&peeker)){
+                std::cout << "Struct with following attributes successfully peeked:" << std::endl;
+                std::cout << "ID: " << peeker.id << std::endl;
+                std::cout << "Information: " << peeker.information << std::endl;
+            }else{
+                std::cout << "Peek underflow error: stack is empty" << std::endl;
+            }
+            //pop()
+            std::cout << "Result of pop(): ";
+            if(stack.pop(&popper)){
+                std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
+                std::cout << "ID: " << popper.id << std::endl;
+                std::cout << "Information: " << popper.information << std::endl;
+            }else{
+                std::cout << "Pop underflow error: stack is empty" << std::endl;
+            }
+        }
+
 
         
 
