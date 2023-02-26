@@ -129,6 +129,7 @@ int main(int argc, char **argv) {
                 }
             }
         }
+        std::cout << std::endl;
 
         //Testing isEmpty() on full stack
         std::cout << "Result of isEmpty(): ";
@@ -248,6 +249,7 @@ int main(int argc, char **argv) {
                 std::cerr << e << std::endl;
             }
         }
+        std::cout << std::endl;
 
         //Test isEmpty(), peek(), and pop() on a range of structs in the middle of the stack
         for(int i = 0; i < size*NARROW; i++){
@@ -308,6 +310,7 @@ int main(int argc, char **argv) {
                 std::cerr << e << std::endl;
             }
         }
+        std::cout << std::endl;
 
         //Test random operations
         int choice = rand() % CHOICES + 1;
