@@ -1,2 +1,2 @@
-# stack-starter
-Starter code for creating a simple stack.
+# Stack ADT
+This program creates a stack ADT that holds a collection of pointers to Structures.
