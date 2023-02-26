@@ -28,7 +28,7 @@ void rand_string(std::string *str){
     return;
 }
 
-bool isPosInt(const char *num){
+bool checkInput(const char *num){
     bool check = true;
     int index = 0;
     while(num[index] != '\0'){
@@ -36,6 +36,10 @@ bool isPosInt(const char *num){
             check = false;
         };
         index++;
+    }
+
+    if(atoi(num) == 0 || atoi(num) == 1){
+        check = false;
     }
 
     return check;

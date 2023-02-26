@@ -8,8 +8,8 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 
 int main(int argc, char **argv) {
     
-    if(argc == 2 && isPosInt(argv[1])){
-
+    if(argc == 2 && checkInput(argv[1])){
+        
         //convert command line input from char **argv to int
         int size = atoi(argv[1]);
 
@@ -376,7 +376,7 @@ int main(int argc, char **argv) {
         std::cout << "Testing complete." << std::endl;
         
     }else{
-        std::cout << "Invalid command line argument. You must enter one and only one positive integer." << std::endl;
+        std::cout << "Invalid command line argument. You must enter one and only one positive integer that is not 0 or 1." << std::endl;
     }
     
     return 0;

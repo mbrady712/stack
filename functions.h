@@ -13,8 +13,9 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #include <time.h>     /* time */
 #include <time.h>     /* time */
 #include <string>     /* string */
+#include <iostream>
 
 void rand_string(std::string*);
-bool isPosInt(const char *);
+bool checkInput(const char *);
 
 #endif /* STACKS_FUNCTIONS_H */
