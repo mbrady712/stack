@@ -10,13 +10,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #define BOTTOM -1
 #define DEFAULT 10
 
-/*
- * there are no other includes here because they are not needed.
- * if you do need other things included, they would go here
- */
-
 #include "data.h"
-#include <iostream>
 
 class Stack {
 

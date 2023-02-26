@@ -4,7 +4,6 @@ Programming Fundamentals III
 Purpose: This program creates a stack ADT that holds a collection of pointers to Structures.
 **********************/
 
-// each cpp includes ONLY it's header directly
 #include "stack.h"
 
 Stack::Stack(int arg){

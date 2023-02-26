@@ -20,10 +20,4 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #include "functions.h"
 #include "stack.h"
 
-/*
- * additional directives here
- * 
- */
-
-
 #endif /* STACKS_MAIN_H */
