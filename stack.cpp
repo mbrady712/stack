@@ -12,7 +12,7 @@ Stack::Stack(int arg){
     if(arg >= 2){
         size = arg;
     }else{
-        size = 10;
+        size = DEFAULT_SIZE;
     }
 
     stack = new Data*[size];
@@ -20,31 +20,18 @@ Stack::Stack(int arg){
 
 bool Stack::push(int num, string& data){
     bool success = false;
-    std::string idError = "Struct not pushed: the ID entered is less than zero and is therefore invalid";
-    std::string dataError = "Struct not pushed: The information entered is empty and is therefore invalid";
-    std::string overflow = "Overflow error: stack is full.";
 
-    //If there is room in the stack
-    if(top < size - 1){
-        //Check for valid data
-        if(num < 0){
-            throw idError;
-        }else if(data == ""){
-            throw dataError;
-        }else{//If data is valid, push struct to stack
-            Data *myData = new Data;
+    if(num >= 0 && data != "" && top < size - 1){
+        Data *myData = new Data;
 
-            myData->id = num;
-            myData->information = data;
+        myData->id = num;
+        myData->information = data;
 
-            top++;
+        top++;
 
-            stack[top] = myData;
+        stack[top] = myData;
 
-            success = true;
-        }
-    }else{
-        throw overflow;
+        success = true;
     }
 
     return success;
@@ -101,7 +88,7 @@ int Stack::getSize(){
 }
 
 Stack::~Stack(){
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < top; i++){
         delete stack[i];
     }
     delete[] stack;

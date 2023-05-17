@@ -7,6 +7,7 @@ Purpose: This program creates a stack ADT that holds a collection of pointers to
 #ifndef STACK_H
 #define STACK_H
 
+#define DEFAULT_SIZE 10
 #define BOTTOM -1
 #define DEFAULT 10
 
