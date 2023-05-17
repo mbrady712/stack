@@ -17,8 +17,6 @@ int main(int argc, char **argv) {
 
         srand(time(NULL));
 
-        bool overflow;
-
         //ID and information values to be used for testing
         int testID;
         std::string testInfo;
@@ -82,13 +80,10 @@ int main(int argc, char **argv) {
 
         testID = rand() * -1;
         testInfo = "Testing a struct with a negative ID";
-        try
-        {
-            stack.push(testID, testInfo);
-        }
-        catch(std::string& e)
-        {
-            std::cout << e << std::endl;
+        if(stack.push(testID, testInfo)){
+            std::cout << "Struct successfully pushed" << std::endl;
+        }else{
+            std::cout << "Struct not pushed" << std::endl;
         }
         std::cout << std::endl;
         
@@ -97,36 +92,31 @@ int main(int argc, char **argv) {
 
         testID = rand();
         testInfo = "";
-        try
-        {
-            stack.push(testID, testInfo);
-        }
-        catch(std::string& e)
-        {
-            std::cout << e << std::endl;
+        if(stack.push(testID, testInfo)){
+            std::cout << "Struct successfully pushed" << std::endl;
+        }else{
+            std::cout << "Struct not pushed" << std::endl;
         }
         std::cout << std::endl;
 
         //Testing filling the stack and overflow
         std::cout << "Filling the stack until overflow error occurs:" << std::endl;
 
+        bool overflow = false;
+
         while(!overflow){
             //Create random id and information
             testID = (rand() % MAX_INT + 1);
             rand_string(&testInfo);
-            try
-            {
-                stack.push(testID, testInfo);
+            if(stack.push(testID, testInfo)){
                 std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
                 std::cout << "ID: " << testID << std::endl;
                 std::cout << "Information: " << testInfo << std::endl;
-            }
-            catch(std::string& e)
-            {
-                std::cerr << e << std::endl;
-                if(e == "Overflow error: stack is full."){
-                    overflow = true;
-                }
+            }else if (stack.getSize() >= size){
+                std::cout << "Overflow error: struct not pushed" << std::endl;
+                overflow = true;
+            }else{
+                std::cout << "Struct not pushed: invalid id or data" << std::endl;
             }
         }
         std::cout << std::endl;
@@ -237,16 +227,12 @@ int main(int argc, char **argv) {
             //Create random id and information
             testID = (rand() % MAX_INT + 1);
             rand_string(&testInfo);
-            try
-            {
-                stack.push(testID, testInfo);
+            if(stack.push(testID, testInfo)){
                 std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
                 std::cout << "ID: " << testID << std::endl;
                 std::cout << "Information: " << testInfo << std::endl;
-            }
-            catch(std::string& e)
-            {
-                std::cerr << e << std::endl;
+            }else{
+                std::cout << "Overflow error: stack is full." << std::endl;
             }
         }
         std::cout << std::endl;
@@ -298,16 +284,12 @@ int main(int argc, char **argv) {
             //Create random id and information
             testID = (rand() % MAX_INT + 1);
             rand_string(&testInfo);
-            try
-            {
-                stack.push(testID, testInfo);
+            if(stack.push(testID, testInfo)){
                 std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
                 std::cout << "ID: " << testID << std::endl;
                 std::cout << "Information: " << testInfo << std::endl;
-            }
-            catch(std::string& e)
-            {
-                std::cerr << e << std::endl;
+            }else{
+                std::cout << "Overflow error: stack is full." << std::endl;
             }
         }
         std::cout << std::endl;
@@ -324,23 +306,18 @@ int main(int argc, char **argv) {
                     //Create random id and information
                     testID = (rand() % MAX_INT + 1);
                     rand_string(&testInfo);
-                    try
-                    {
-                        stack.push(testID, testInfo);
+                    if(stack.push(testID, testInfo)){
                         std::cout << "Struct with following attributes successfully pushed to stack:" << std::endl;
                         std::cout << "ID: " << testID << std::endl;
                         std::cout << "Information: " << testInfo << std::endl;
-                    }
-                    catch(std::string& e)
-                    {
-                        std::cerr << e << std::endl;
+                    }else{
+                        std::cout << "Overflow error: stack is full." << std::endl;
                     }
                     break;
                 case 3:
                 case 4:
                     //pop()
                     std::cout << "Result of pop():" << std::endl;
-
                     if(stack.pop(&popper)){
                         std::cout << "Struct with following attributes successfully popped from stack:" << std::endl;
                         std::cout << "ID: " << popper.id << std::endl;
